@@ -18,11 +18,14 @@ const createNewPost: RequestHandler = async (req, res) => {
 
 const getAllPosts: RequestHandler = async (req, res) => {
   try {
-    const result = await postServices.getAllPosts();
+    console.log(req.query);
+    const options = req.query;
+    const result = await postServices.getAllPosts(options);
     res.status(httpStatus.OK).json({
       success: true,
       message: "All post retrived successfully",
-      data: result,
+      count: result.total,
+      data: result.result,
     });
   } catch (error) {
     res.send(error);
