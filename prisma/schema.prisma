@@ -40,10 +40,12 @@ authorId Int
 author User @relation(fields: [authorId], references: [id])
 categoryId Int
 category Category @relation(fields: [categoryId], references: [id])
+@@map("posts")
 }
 
 model Category{
   id Int @id @default(autoincrement())
   categoryTitle String @db.VarChar(100)
   post Post[]
+  @@map("categories")
 }
