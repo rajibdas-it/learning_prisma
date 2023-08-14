@@ -8,6 +8,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// app.get("/", (req, res) => {
+//   res.send("application ok");
+// });
+
 app.use("/api/v1", routes);
 
 export default app;
